@@ -1,0 +1,6 @@
+{
+  "name": "Uniauto Maceió Alagoas - Proteção Veicular",
+  "description": "Proteção Veicular completa em Maceió e todo o Brasil. 100% Tabela FIPE, Assistência 24h, sem burocracia. Não conte com a sorte, conte com a Uniauto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
