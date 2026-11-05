@@ -115,7 +115,15 @@ export const BeneficiosSection: React.FC = () => {
                 Central de Emergência e Assistência 24h
               </span>
               <h4 className="text-xl sm:text-2xl font-black text-white">
-                Precisa de socorro agora? Ligue para {UNIAUTO_INFO.whatsappEmergency}
+                Precisa de socorro agora? Chame no WhatsApp{' '}
+                <a
+                  href={`https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Preciso de atendimento da Uniauto.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-300 hover:underline"
+                >
+                  {UNIAUTO_INFO.whatsappFormatted}
+                </a>
               </h4>
               <p className="text-xs text-blue-100 font-medium">
                 Plantão 24 horas, 7 dias por semana em todo o Brasil.

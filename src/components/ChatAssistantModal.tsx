@@ -34,6 +34,7 @@ export const ChatAssistantModal: React.FC = () => {
   ]);
 
   const quickQuestions = [
+    { label: '🎉 Indique & Ganhe (PIX R$ 1.000)', query: 'Como funciona o programa Indique e Ganhe?' },
     { label: '🚗 Trabalho na Uber / 99', query: 'Sou motorista de aplicativo (Uber/99). Como funciona?' },
     { label: '⚡ Carros e Motos Elétricas', query: 'Vocês protegem carros elétricos e motos elétricas?' },
     { label: '💡 Desconto 10% na Conta de Luz', query: 'Como funciona o benefício de desconto na conta de energia?' },
@@ -73,7 +74,14 @@ export const ChatAssistantModal: React.FC = () => {
       let botReply = '';
       let action: Message['actionButton'] = undefined;
 
-      if (lower.includes('uber') || lower.includes('99') || lower.includes('aplicativo') || lower.includes('app') || lower.includes('motorista')) {
+      if (lower.includes('indique') || lower.includes('ganhe') || lower.includes('pix') || lower.includes('indicou') || lower.includes('amigo')) {
+        botReply = 'O programa INDIQUE E GANHE Uniauto Brasil é sensacional! Você ganha R$ 100,00 no PIX para cada Carro indicado e R$ 50,00 para cada Moto indicada assim que a proteção for fechada. E com a SUPER PROMOÇÃO: indicando 5 pessoas que fecharem o contrato, você leva o SUPER PIX DE R$ 1.000,00! Sem limites de indicação.';
+        action = {
+          label: 'Indicar Amigos no WhatsApp',
+          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Gostaria de indicar um amigo para a Uniauto pelo programa Indique e Ganhe e receber meu PIX!')}`,
+          type: 'whatsapp',
+        };
+      } else if (lower.includes('uber') || lower.includes('99') || lower.includes('aplicativo') || lower.includes('app') || lower.includes('motorista')) {
         botReply = 'Sim! A Uniauto Brasil oferece proteção veicular especialmente desenhada para motoristas de Uber, 99, táxi e entregadores. Não temos acréscimos abusivos por rodar muito e você conta com guincho ilimitado e carro reserva para não ficar sem faturamento!';
         action = {
           label: 'Cotar Plano para App no WhatsApp',

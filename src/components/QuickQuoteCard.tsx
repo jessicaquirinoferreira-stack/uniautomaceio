@@ -242,7 +242,7 @@ Aguardo o retorno do consultor da Uniauto! Obrigado.`;
             <input
               type="tel"
               required
-              placeholder="(82) 99999-9999"
+              placeholder="(82) 99644-5705"
               value={userPhone}
               onChange={(e) => setUserPhone(e.target.value)}
               className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-[#003DA5] focus:bg-white"

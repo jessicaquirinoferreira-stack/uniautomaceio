@@ -45,7 +45,7 @@ export const CtaSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-[#00A859] hover:bg-[#008f4c] text-white font-black text-base sm:text-lg flex items-center justify-center gap-3 shadow-xl shadow-emerald-600/30 transition hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>Fazer Cotação no WhatsApp</span>
+                <span>Fazer Cotação no WhatsApp ({UNIAUTO_INFO.whatsappFormatted})</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
 
@@ -59,7 +59,7 @@ export const CtaSection: React.FC = () => {
                 <span className="w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600">
                   <Instagram className="w-3.5 h-3.5 text-white" />
                 </span>
-                <span>Falar no Instagram</span>
+                <span>Instagram {UNIAUTO_INFO.instagramHandle}</span>
               </a>
             </div>
 

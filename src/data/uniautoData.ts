@@ -55,16 +55,71 @@ export const UNIAUTO_INFO = {
   slogan: "Especializada em Proteção Veicular | Confiança | Tranquilidade",
   impactPhrase: "Não conte com a sorte, conte com a Uniauto",
   cnpj: "46.722.227/0001-41",
-  whatsappNumber: "5582999998877", // Maceió DDD 82
-  whatsappFormatted: "(82) 99999-8877",
-  whatsappEmergency: "0800 770 1234",
-  instagramUrl: "https://www.instagram.com/uniautomaceio/",
-  instagramHandle: "@uniautomaceio",
+  whatsappNumber: "5582996445705", // Alagoas DDD 82 99644-5705
+  whatsappFormatted: "(82) 99644-5705",
+  whatsappEmergency: "(82) 99644-5705",
+  instagramUrl: "https://www.instagram.com/Uniautomaceio/",
+  instagramHandle: "@Uniautomaceio",
   address: "Av. Fernandes Lima, 2500 - Farol, Maceió - AL, 57057-000",
   coverageArea: "Maceió, todo o estado de Alagoas e território nacional",
-  defaultWhatsAppMessage: "Olá! Vi o site da Uniauto Brasil / Maceió e gostaria de fazer uma cotação com os novos planos.",
+  defaultWhatsAppMessage: "Olá! Vi o site da Uniauto e gostaria de fazer uma cotação.",
   officialLogoUrl: "https://i.postimg.cc/QdsDWQ6P/Logo-UNIAUTO-com-Gradiente-Vibrante.png",
   energyBenefitImageUrl: "https://i.postimg.cc/xjXCFhSv/Whats-App-Image-2026-11-04-at-19-02-41.jpg",
+  flyerIndique1Url: "/assets/aistudio/image_06881d10.png",
+  flyerIndique2Url: "/assets/aistudio/image_4897bb1c.png",
+};
+
+export interface IndiqueGanheConfig {
+  title: string;
+  badge: string;
+  slogan: string;
+  headline: string;
+  description: string;
+  rewardCar: number;
+  rewardMoto: number;
+  superPixGoal: number; // Corrigido para 5 pessoas
+  superPixAmount: number; // R$ 1.000,00
+  ruleNotice: string;
+  steps: { step: string; title: string; desc: string; icon: string }[];
+}
+
+export const INDIQUE_E_GANHE_DATA: IndiqueGanheConfig = {
+  title: "Programa Indique e Ganhe",
+  badge: "PIX Direto na Sua Conta • Sem Limites de Indicação",
+  slogan: "INDICOU, FECHOU, GANHOU!",
+  headline: "Indique Amigos, Familiares ou Conhecidos e Ganhe Prêmios em Dinheiro!",
+  description: "Você que conhece amigos, vizinhos e parentes que tenham carro ou moto em Maceió e em toda Alagoas... Chegou a oportunidade que você esperava! Indique para a Uniauto Brasil e lucre a cada contrato fechado.",
+  rewardCar: 100,
+  rewardMoto: 50,
+  superPixGoal: 5, // CORRIGIDO CONFORME PEDIDO DO USUÁRIO: 5 pessoas
+  superPixAmount: 1000, // R$ 1.000,00
+  ruleNotice: "O valor só será pago via PIX se a proteção for fechada e ativada com o cliente indicado.",
+  steps: [
+    {
+      step: "01",
+      title: "Você Indica",
+      desc: "Envie o nome e WhatsApp de amigos, familiares ou vizinhos com carro ou moto.",
+      icon: "UserPlus",
+    },
+    {
+      step: "02",
+      title: "A Uniauto Apresenta",
+      desc: "Nossos consultores fazem a cotação personalizada sem compromisso e sem burocracia.",
+      icon: "FileCheck",
+    },
+    {
+      step: "03",
+      title: "O Amigo Fecha",
+      desc: "Assim que seu indicado contratar a proteção (carro a partir de R$ 100 / moto a partir de R$ 50)...",
+      icon: "Handshake",
+    },
+    {
+      step: "04",
+      title: "Você Ganha Dinheiro no PIX!",
+      desc: "R$ 100 por carro, R$ 50 por moto. E se indicar 5 pessoas que fecharem, leva o SUPER PIX DE R$ 1.000,00!",
+      icon: "Coins",
+    },
+  ],
 };
 
 export const PLANOS_DATA: PlanoItem[] = [
@@ -424,7 +479,12 @@ export const FAQ_LIST: FaqItem[] = [
   },
   {
     question: "A Assistência 24h funciona fora de Alagoas?",
-    answer: "Sim! A Uniauto possui cobertura e assistência 24 horas em todo o território nacional. Se você viajar para São Paulo, Rio, Bahia, Pernambuco ou qualquer outro estado e precisar de guincho, chaveiro ou socorro mecânico, nossa central 0800 atenderá prontamente.",
+    answer: "Sim! A Uniauto possui cobertura e assistência 24 horas em todo o território nacional. Se você viajar para São Paulo, Rio, Bahia, Pernambuco ou qualquer outro estado e precisar de guincho, chaveiro ou socorro mecânico, nossa central 24h no WhatsApp (82) 99644-5705 atenderá prontamente.",
     category: "Assistência",
+  },
+  {
+    question: "Como funciona a promoção 'Indique e Ganhe' (Indicou, Fechou, Ganhou)?",
+    answer: "É muito simples: você indica amigos, conhecidos ou familiares que tenham carro ou moto em Maceió ou qualquer cidade de Alagoas. Quando o cliente fechar e ativar a proteção veicular com a Uniauto, você ganha R$ 100,00 por carro indicado e R$ 50,00 por moto indicada direto no seu PIX! E com a SUPER PROMOÇÃO: indicando 5 pessoas que fecharem o contrato, você garante um SUPER PIX DE R$ 1.000,00! Não há limite de indicações.",
+    category: "Indique e Ganhe",
   },
 ];

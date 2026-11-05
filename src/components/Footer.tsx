@@ -70,6 +70,11 @@ export const Footer: React.FC = () => {
                 <a href="#beneficio-energia" className="text-[#003DA5] font-black hover:underline transition">Conta de Luz -10% Off</a>
               </li>
               <li>
+                <a href="#indique-e-ganhe" className="text-amber-700 bg-amber-50 px-2 py-0.5 rounded font-black hover:bg-amber-100 transition inline-block">
+                  💰 Indique & Ganhe (Super PIX R$ 1.000)
+                </a>
+              </li>
+              <li>
                 <a href="#diferenciais" className="hover:text-[#003DA5] transition">Diferenciais (App & Elétricos)</a>
               </li>
               <li>
@@ -119,11 +124,25 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#00A859] shrink-0" />
-                <span className="text-slate-700">WhatsApp: <strong>{UNIAUTO_INFO.whatsappFormatted}</strong></span>
+                <a
+                  href={`https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent(UNIAUTO_INFO.defaultWhatsAppMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-700 hover:text-[#00A859] transition"
+                >
+                  WhatsApp: <strong>{UNIAUTO_INFO.whatsappFormatted}</strong>
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <span className="text-slate-700">Emergência 24h: <strong>{UNIAUTO_INFO.whatsappEmergency}</strong></span>
+                <a
+                  href={`https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Preciso de atendimento/assistência 24h da Uniauto.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-700 hover:text-[#003DA5] transition"
+                >
+                  Plantão & Central: <strong>{UNIAUTO_INFO.whatsappFormatted}</strong>
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Instagram className="w-4 h-4 text-pink-600 shrink-0" />

@@ -19,11 +19,11 @@ export const Navbar: React.FC = () => {
     { label: 'Início', href: '#inicio' },
     { label: 'Planos', href: '#planos' },
     { label: 'Conta de Luz -10%', href: '#beneficio-energia' },
+    { label: 'Indique & Ganhe (PIX)', href: '#indique-e-ganhe', highlight: true },
     { label: 'Diferenciais', href: '#diferenciais' },
     { label: 'Coberturas', href: '#coberturas' },
     { label: 'Benefícios', href: '#beneficios' },
     { label: 'Como Funciona', href: '#como-funciona' },
-    { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -47,11 +47,13 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex items-center gap-4 text-blue-100 font-medium">
             <a
-              href={`tel:${UNIAUTO_INFO.whatsappEmergency.replace(/\s+/g, '')}`}
+              href={`https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent(UNIAUTO_INFO.defaultWhatsAppMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition flex items-center gap-1.5 font-bold"
             >
               <Phone className="w-3.5 h-3.5 text-cyan-300" />
-              <span>{UNIAUTO_INFO.whatsappEmergency}</span>
+              <span>WhatsApp: {UNIAUTO_INFO.whatsappFormatted}</span>
             </a>
             <span className="hidden md:inline text-blue-200">| Maceió - AL</span>
           </div>
@@ -78,7 +80,11 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 rounded-lg text-xs xl:text-sm font-bold text-slate-700 hover:text-[#003DA5] hover:bg-blue-50/80 transition-all duration-200"
+                className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-bold transition-all duration-200 ${
+                  link.highlight
+                    ? 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-800 font-black border border-emerald-300 shadow-xs'
+                    : 'text-slate-700 hover:text-[#003DA5] hover:bg-blue-50/80'
+                }`}
               >
                 {link.label}
               </a>
@@ -128,9 +134,20 @@ export const Navbar: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-[#003DA5] transition"
+                  className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold transition ${
+                    link.highlight
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                      : 'text-slate-800 hover:bg-blue-50 hover:text-[#003DA5]'
+                  }`}
                 >
-                  <span>{link.label}</span>
+                  <span className="flex items-center gap-2">
+                    {link.label}
+                    {link.highlight && (
+                      <span className="px-1.5 py-0.5 rounded bg-[#00A859] text-white text-[10px] font-black">
+                        PIX
+                      </span>
+                    )}
+                  </span>
                   <ChevronRight className="w-4 h-4 text-slate-400" />
                 </a>
               ))}
@@ -155,7 +172,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold text-center text-xs flex items-center justify-center gap-2"
               >
-                <span className="text-pink-600 font-bold">@uniautomaceio</span> no Instagram
+                <span className="text-pink-600 font-bold">{UNIAUTO_INFO.instagramHandle}</span> no Instagram
               </a>
             </div>
           </div>

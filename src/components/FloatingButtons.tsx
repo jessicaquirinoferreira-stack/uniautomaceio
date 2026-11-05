@@ -12,7 +12,7 @@ export const FloatingButtons: React.FC = () => {
       <div className="relative group flex items-center">
         {/* Tooltip on left */}
         <span className="hidden md:block absolute right-full mr-3 px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-slate-700 shadow-xl">
-          Siga no Instagram <strong className="text-pink-400">@uniautomaceio</strong>
+          Siga no Instagram <strong className="text-pink-400">{UNIAUTO_INFO.instagramHandle}</strong>
         </span>
 
         <a
@@ -46,7 +46,7 @@ export const FloatingButtons: React.FC = () => {
       <div className="relative group flex items-center">
         {/* Tooltip on left */}
         <span className="hidden md:block absolute right-full mr-3 px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-slate-700 shadow-xl">
-          Fazer Cotação no <strong className="text-emerald-400">WhatsApp</strong>
+          Cotar no WhatsApp <strong className="text-emerald-400">{UNIAUTO_INFO.whatsappFormatted}</strong>
         </span>
 
         {/* Pulse ring animation */}

@@ -8,6 +8,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { PlanosSection } from './components/PlanosSection';
 import { BeneficioEnergiaSection } from './components/BeneficioEnergiaSection';
+import { IndiqueEGanheSection } from './components/IndiqueEGanheSection';
 import { DiferenciaisBanner } from './components/DiferenciaisBanner';
 import { CoberturasSection } from './components/CoberturasSection';
 import { BeneficiosSection } from './components/BeneficiosSection';
@@ -38,7 +39,10 @@ export default function App() {
         {/* 3. Benefício Exclusivo: Economia a partir de 10% na Fatura de Energia */}
         <BeneficioEnergiaSection />
 
-        {/* 4. Nossos Diferenciais (App Uber/99, Elétricos, Sem CNH, FAN, Sem SPC) */}
+        {/* 4. Programa Indique e Ganhe: R$ 100 Carro, R$ 50 Moto e SUPER PIX R$ 1.000 (Meta 5 pessoas) */}
+        <IndiqueEGanheSection />
+
+        {/* 5. Nossos Diferenciais (App Uber/99, Elétricos, Sem CNH, FAN, Sem SPC) */}
         <DiferenciaisBanner />
 
         {/* 5. Coberturas Completas 100% FIPE */}

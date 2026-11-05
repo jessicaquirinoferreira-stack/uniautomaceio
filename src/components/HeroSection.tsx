@@ -85,6 +85,22 @@ export const HeroSection: React.FC = () => {
               </span>
             </div>
 
+            {/* Indique e Ganhe Highlight Hook */}
+            <a
+              href="#indique-e-ganhe"
+              className="flex items-center justify-between gap-2.5 p-3 rounded-xl bg-amber-50/90 border border-amber-300 text-xs sm:text-sm text-amber-950 font-bold hover:bg-amber-100 transition shadow-2xs group"
+            >
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 text-[10px] font-black uppercase">
+                  Indique & Ganhe
+                </span>
+                <span>
+                  Ganhe <strong>R$ 100 por Carro</strong>, <strong>R$ 50 por Moto</strong> ou <strong>SUPER PIX de R$ 1.000</strong> (5 indicados)!
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-amber-800 group-hover:translate-x-1 transition-transform shrink-0" />
+            </a>
+
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
               {/* Button 1: WhatsApp Quero Me Proteger */}
