@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   Clock,
   Sparkles,
+  Lightbulb,
 } from 'lucide-react';
 import { BENEFICIOS, UNIAUTO_INFO } from '../data/uniautoData';
 
@@ -21,6 +22,8 @@ export const BeneficiosSection: React.FC = () => {
   const getIcon = (iconName: string) => {
     const props = { className: "w-6 h-6 transition-transform duration-200 group-hover:scale-110" };
     switch (iconName) {
+      case 'Lightbulb':
+        return <Lightbulb {...props} className="w-6 h-6 text-amber-500" />;
       case 'Truck':
         return <Truck {...props} className="w-6 h-6 text-[#00A859]" />;
       case 'Key':

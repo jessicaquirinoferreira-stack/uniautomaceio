@@ -33,10 +33,25 @@ export interface FaqItem {
   category: string;
 }
 
+export interface PlanoItem {
+  id: string;
+  badge?: string;
+  title: string;
+  subtitle: string;
+  priceStartingAt: string;
+  pricePeriod: string;
+  popular?: boolean;
+  idealFor: string;
+  features: string[];
+  highlightTag: string;
+}
+
 export const UNIAUTO_INFO = {
   name: "Uniauto Maceió Alagoas",
   nationalBrand: "Uniauto Brasil",
   segment: "Associação de Proteção Veicular & Patrimonial",
+  affiliation: "Filiada à FAN - Federação / Associação Nacional de Proteção Veicular",
+  fanBadgeText: "Filiada à FAN • Certificada e Regularizada",
   slogan: "Especializada em Proteção Veicular | Confiança | Tranquilidade",
   impactPhrase: "Não conte com a sorte, conte com a Uniauto",
   cnpj: "46.722.227/0001-41",
@@ -47,8 +62,75 @@ export const UNIAUTO_INFO = {
   instagramHandle: "@uniautomaceio",
   address: "Av. Fernandes Lima, 2500 - Farol, Maceió - AL, 57057-000",
   coverageArea: "Maceió, todo o estado de Alagoas e território nacional",
-  defaultWhatsAppMessage: "Olá! Vi o site da Uniauto Maceió e gostaria de fazer uma cotação.",
+  defaultWhatsAppMessage: "Olá! Vi o site da Uniauto Brasil / Maceió e gostaria de fazer uma cotação com os novos planos.",
+  officialLogoUrl: "https://i.postimg.cc/QdsDWQ6P/Logo-UNIAUTO-com-Gradiente-Vibrante.png",
+  energyBenefitImageUrl: "https://i.postimg.cc/xjXCFhSv/Whats-App-Image-2026-11-04-at-19-02-41.jpg",
 };
+
+export const PLANOS_DATA: PlanoItem[] = [
+  {
+    id: "moto",
+    badge: "Super Econômico",
+    title: "Plano Moto & Moto Elétrica",
+    subtitle: "Motos a combustão e 100% elétricas",
+    priceStartingAt: "50,00",
+    pricePeriod: "/mês",
+    idealFor: "Entregadores de app, motoboys e quem roda todo dia",
+    highlightTag: "A partir de R$ 50,00",
+    features: [
+      "100% da Tabela FIPE (Roubo e Furto)",
+      "Proteção para Motos Elétricas e Convencionais",
+      "Especial para Trabalhadores de Aplicativo (iFood, etc.)",
+      "Guincho 24 horas em todo o Brasil",
+      "Socorro mecânico e elétrico no local",
+      "Troca de pneu e chaveiro emergencial",
+      "Sem consulta ao SPC / Serasa",
+      "Benefício exclusivo: Economia de até 10% na conta de luz",
+    ],
+  },
+  {
+    id: "carro",
+    badge: "Mais Escolhido • Especial App & Elétricos",
+    title: "Plano Carro, App & Elétricos",
+    subtitle: "Passeio, Uber, 99, Carros Elétricos & Híbridos",
+    priceStartingAt: "100,00",
+    pricePeriod: "/mês",
+    popular: true,
+    idealFor: "Motoristas de aplicativo (Uber/99), carros elétricos e famílias",
+    highlightTag: "A partir de R$ 100,00",
+    features: [
+      "100% da Tabela FIPE (Perda Total, Roubo e Furto)",
+      "Especial para Motoristas de Aplicativo (sem taxa extra)",
+      "Cobertura para Carros Elétricos (EVs) e Híbridos",
+      "Colisão Parcial e Total em oficinas credenciadas",
+      "Proteção para Terceiros até R$ 150.000,00",
+      "Guincho Ilimitado em caso de colisão",
+      "Carro reserva (15 dias ou mais)",
+      "Cobertura de vidros, faróis e retrovisores (70%)",
+      "Benefício exclusivo: Economia a partir de 10% na conta de luz",
+    ],
+  },
+  {
+    id: "utilitario",
+    badge: "Trabalho Pesado & Frotas",
+    title: "Plano Pick-ups, Vans & Comerciais",
+    subtitle: "Caminhonetes, Vans, Utilitários e Caminhões",
+    priceStartingAt: "150,00",
+    pricePeriod: "/mês",
+    idealFor: "Empresas, transporte executivo, produtores e fretes",
+    highlightTag: "Cotação Sob Medida",
+    features: [
+      "100% da Tabela FIPE garantida",
+      "Sem análise de perfil de condutor",
+      "Proteção de terceiros até R$ 150.000,00",
+      "Guincho pesado e socorro rápido 24h",
+      "Hospedagem emergencial para passageiros",
+      "Rastreamento e telemetria inclusos (veículos elegíveis)",
+      "Uni Médicos: Telemedicina para você e sua equipe",
+      "Benefício exclusivo: Economia a partir de 10% na fatura de energia",
+    ],
+  },
+];
 
 export const COBERTURAS: Cobertura[] = [
   {
@@ -58,6 +140,22 @@ export const COBERTURAS: Cobertura[] = [
     detail: "Em caso de perda total, roubo ou furto sem recuperação, você recebe 100% do valor da Tabela FIPE vigente, garantindo que seu patrimônio seja totalmente restituído sem surpresas.",
     iconName: "ShieldCheck",
     tag: "100% FIPE",
+  },
+  {
+    id: "app-uber",
+    title: "Proteção Especial Motorista de App",
+    shortDesc: "Feita sob medida para motoristas de Uber, 99 e entregadores, sem travas ou custos abusivos.",
+    detail: "Enquanto seguradoras tradicionais cobram o dobro ou recusam quem roda em aplicativo, na Uniauto Brasil você é acolhido com planos justos a partir de R$ 100, guincho rápido e suporte para não perder corridas.",
+    iconName: "CarTaxiFront",
+    tag: "Uber & 99",
+  },
+  {
+    id: "eletricos",
+    title: "Carros & Motos Elétricas (EVs)",
+    shortDesc: "Proteção tecnológica especializada para veículos 100% elétricos e híbridos modernos.",
+    detail: "Cobrimos componentes elétricos, sistemas de tração, danos por colisão, alagamento e roubo de veículos elétricos e híbridos. Tecnologia de ponta com oficinas capacitadas.",
+    iconName: "Zap",
+    tag: "Elétricos & Híbridos",
   },
   {
     id: "roubo",
@@ -76,14 +174,6 @@ export const COBERTURAS: Cobertura[] = [
     tag: "Oficinas de Ponta",
   },
   {
-    id: "incendio",
-    title: "Incêndio por Colisão",
-    shortDesc: "Proteção patrimonial contra danos causados pelo fogo decorrente de colisão.",
-    detail: "Acidentes com curto-circuito ou vazamento de combustível após colisão têm cobertura integral para reparar ou ressarcir o veículo do associado.",
-    iconName: "Flame",
-    tag: "Fogo & Colisão",
-  },
-  {
     id: "natureza",
     title: "Fenômenos da Natureza",
     shortDesc: "Amparo contra enchentes, alagamentos, queda de árvores e granizo.",
@@ -92,19 +182,11 @@ export const COBERTURAS: Cobertura[] = [
     tag: "Alagamento & Granizo",
   },
   {
-    id: "sem-perfil",
-    title: "Sem Perfil de Condutor",
-    shortDesc: "Qualquer pessoa habilitada pode dirigir o seu veículo sem encarecer a mensalidade.",
-    detail: "Aqui não existe questionário sobre quem mais dirige o carro, idade de jovens condutores ou se o carro dorme em garagem fechada. Seu veículo está protegido nas mãos de qualquer habilitado.",
-    iconName: "Users",
-    tag: "Livre Condutor",
-  },
-  {
     id: "terceiros",
     title: "Proteção para Terceiros até R$ 150.000",
     shortDesc: "Tranquilidade garantida caso você se envolva em acidente com outro veículo.",
     detail: "Cobrimos os danos materiais e corporais involuntários causados a terceiros até R$ 150.000,00, evitando prejuízos astronômicos no seu bolso e desentendimentos.",
-    iconName: "CarTaxiFront",
+    iconName: "Users",
     tag: "Até R$ 150.000",
   },
   {
@@ -119,10 +201,17 @@ export const COBERTURAS: Cobertura[] = [
 
 export const BENEFICIOS: Beneficio[] = [
   {
+    id: "energia",
+    title: "Economia a partir de 10% na Conta de Luz",
+    desc: "Benefício exclusivo para associados Uniauto: desconto direto na fatura de energia da sua residência ou empresa todo mês!",
+    highlight: "Exclusivo Associado",
+    iconName: "Lightbulb",
+  },
+  {
     id: "guincho",
     title: "Guincho Ilimitado (Colisão)",
     desc: "Em caso de colisão, o reboque é ilimitado até a oficina referenciada. Para pane, ampla quilometragem nacional.",
-    highlight: "Sem Limite de KM p/ Acidentes",
+    highlight: "Sem Limite KM p/ Acidente",
     iconName: "Truck",
   },
   {
@@ -181,39 +270,50 @@ export const BENEFICIOS: Beneficio[] = [
     highlight: "Saúde Associativa",
     iconName: "HeartPulse",
   },
-  {
-    id: "rastreador",
-    title: "Rastreamento e App em Tempo Real",
-    desc: "Para veículos elegíveis, instalação de rastreador de alta precisão com aplicativo para celular 24 horas por dia.",
-    highlight: "GPS no Celular",
-    iconName: "Crosshair",
-  },
 ];
 
 export const DIFERENCIAIS = [
   {
-    title: "Não precisa ter CNH",
-    desc: "O proprietário associado não é obrigado a ter habilitação para proteger seu patrimônio.",
-    icon: "FileCheck",
+    title: "Especial para Motoristas de App",
+    desc: "Proteção completa para Uber, 99 e táxi sem restrições ou cancelamentos. Você roda tranquilo e com renda garantida.",
+    icon: "CarTaxiFront",
+    color: "from-blue-600 to-[#003DA5]",
+    tag: "Uber & 99",
+  },
+  {
+    title: "Carros & Motos Elétricas",
+    desc: "Amparo inovador para veículos 100% elétricos e híbridos com oficinas preparadas para baterias e eletrônica.",
+    icon: "Zap",
+    color: "from-emerald-500 to-[#00A859]",
+    tag: "Veículos Elétricos",
+  },
+  {
+    title: "Planos Justos: Moto R$ 50 | Carro R$ 100",
+    desc: "Valores transparentes e acessíveis que cabem no bolso, sem fidelidade abusiva e com 100% da Tabela FIPE.",
+    icon: "BadgePercent",
     color: "from-amber-500 to-orange-500",
+    tag: "Valores Imbatíveis",
   },
   {
-    title: "CRLV não precisa estar no seu nome",
-    desc: "Comprou financiado, de parente ou ainda vai transferir? Você pode proteger o veículo imediatamente.",
-    icon: "FileText",
-    color: "from-blue-500 to-indigo-600",
+    title: "Sem CNH & CRLV de Terceiro",
+    desc: "Você não precisa ter habilitação para ser associado e o veículo não precisa estar transferido para o seu nome.",
+    icon: "FileCheck",
+    color: "from-sky-500 to-blue-600",
+    tag: "Zero Burocracia",
   },
   {
-    title: "Assistência 24h em todo o Brasil",
-    desc: "Rodando em Maceió, na rota ecológica de Alagoas ou em qualquer estado, a central 0800 está pronta.",
-    icon: "MapPin",
-    color: "from-emerald-500 to-teal-600",
+    title: "Filiada à FAN • Amparo Nacional",
+    desc: "Segurança de uma associação regularizada e filiada à Federação/Associação Nacional de Proteção Veicular.",
+    icon: "ShieldCheck",
+    color: "from-indigo-600 to-purple-600",
+    tag: "Filiada à FAN",
   },
   {
-    title: "Cotação em 2 minutos sem consulta",
-    desc: "Sem consulta ao SPC ou Serasa. Zero burocracia, vistoria 100% online por fotos no celular.",
+    title: "Sem consulta ao SPC e Serasa",
+    desc: "Adesão 100% digital em 2 minutos pelo celular sem travar por score ou restrição de crédito.",
     icon: "Clock",
-    color: "from-purple-500 to-pink-600",
+    color: "from-teal-500 to-emerald-600",
+    tag: "Adesão Imediata",
   },
 ];
 
@@ -221,14 +321,14 @@ export const COMO_FUNCIONA_STEPS = [
   {
     step: "01",
     title: "Faça sua Cotação",
-    desc: "Informe o modelo e ano do seu carro, moto ou utilitário no nosso formulário ou diretamente pelo WhatsApp em menos de 2 minutos.",
+    desc: "Informe seu veículo (carro, moto, elétrico ou app) e receba o valor exato no WhatsApp em menos de 2 minutos.",
     time: "2 min",
   },
   {
     step: "02",
     title: "Escolha o Plano Ideal",
-    desc: "Nossos consultores apresentam as melhores opções de cobertura e assistência sob medida para a sua necessidade e bolso.",
-    time: "Personalizado",
+    desc: "Planos a partir de R$ 50,00 para motos e R$ 100,00 para carros com personalização de guincho e terceiros.",
+    time: "Sob Medida",
   },
   {
     step: "03",
@@ -238,8 +338,8 @@ export const COMO_FUNCIONA_STEPS = [
   },
   {
     step: "04",
-    title: "Veículo 100% Protegido",
-    desc: "Com a adesão confirmada, seu veículo já conta com a proteção integral da Uniauto e assistência 24h em todo o país.",
+    title: "Veículo Protegido + Conta de Luz -10%",
+    desc: "Seu veículo já conta com proteção integral da Uniauto Brasil e você já pode ativar a economia na sua conta de energia.",
     time: "Ativação Imediata",
   },
 ];
@@ -248,64 +348,74 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
     name: "Carlos Eduardo Santos",
-    role: "Motorista por Aplicativo",
+    role: "Motorista Uber & 99",
     location: "Maceió - AL (Pajuçara)",
     vehicle: "Chevrolet Onix Plus 2023",
-    comment: "Eu dependo do carro pra sustentar minha família. Quando bateram na minha traseira na Fernandes Lima, a Uniauto me atendeu em 20 minutos com guincho e ainda me deu o carro reserva. Foi um alívio gigante!",
+    comment: "Eu rodo mais de 200 km por dia na Uber. As seguradoras queriam me cobrar uma fortuna por ser aplicativo. Na Uniauto pago um valor justo a partir de R$ 100, tenho guincho rápido e ainda ativei o desconto na conta de luz de casa!",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    badge: "Associado há 2 anos",
+    badge: "Motorista de App Verificado",
   },
   {
     id: "2",
-    name: "Dra. Mariana Lins",
-    role: "Médica Veterinária",
+    name: "Guilherme Fontes",
+    role: "Proprietário de Carro Elétrico (BYD)",
     location: "Maceió - AL (Ponta Verde)",
-    vehicle: "Jeep Renegade 2022",
-    comment: "Cotei no seguro tradicional e o valor era absurdo pelo meu perfil jovem. Na Uniauto Maceió fechei por menos da metade do preço, com 100% da FIPE e cobertura de vidros completa. Recomendo de olhos fechados!",
+    vehicle: "BYD Dolphin EV 2024",
+    comment: "Tive muita dificuldade de achar proteção com preço coerente para carro elétrico em Maceió. A Uniauto Brasil tem suporte especializado para elétricos com 100% da FIPE. Sensacional!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
-    badge: "Associada Verificada",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+    badge: "Veículo Elétrico Protegido",
   },
   {
     id: "3",
-    name: "Roberto Tenório",
-    role: "Empresário & Produtor",
-    location: "Arapiraca / Maceió - AL",
-    vehicle: "Toyota Hilux 4x4",
-    comment: "Minha caminhonete roda Alagoas inteira a trabalho. Tive uma pane mecânica na BR-101 e o guincho chegou rápido. O atendimento da central é diferenciado e humanizado. Nota 10!",
+    name: "Marcos Vinícius",
+    role: "Entregador Motoboy (iFood)",
+    location: "Maceió - AL (Benedito Bentes)",
+    vehicle: "Honda CG 160 Start",
+    comment: "Plano para moto por R$ 50 reais que realmente cobre roubo, furto e me dá guincho 24h não existe em outro lugar. Fechei tudo pelo WhatsApp em 10 minutos!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
-    badge: "Hilux Protegida",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80",
+    badge: "Plano Moto R$ 50",
   },
   {
     id: "4",
-    name: "Larissa Menezes",
-    role: "Representante Comercial",
-    location: "Maceió - AL (Mangabeiras)",
-    vehicle: "Honda HR-V",
-    comment: "O que mais me impressionou foi a facilidade: não pediram consulta no SPC e a vistoria foi toda feita pelo WhatsApp tirando foto no meu condomínio. Sem filas, sem papelada!",
+    name: "Dra. Mariana Lins",
+    role: "Médica Veterinária",
+    location: "Maceió - AL (Jatiúca)",
+    vehicle: "Jeep Renegade",
+    comment: "Além da proteção do meu carro ser super completa e sem burocracia, a economia de mais de 10% na minha conta de energia veio direto na fatura. Vale cada centavo ser associada!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
-    badge: "Cliente Satisfeita",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    badge: "Associada há 2 anos",
   },
 ];
 
 export const FAQ_LIST: FaqItem[] = [
   {
-    question: "O que é Proteção Veicular e como ela funciona?",
-    answer: "A proteção veicular é realizada por meio de uma associação civil sem fins lucrativos (como a Uniauto Brasil / Uniauto Maceió). Os associados dividem de forma mútua os custos dos eventos ocorridos (colisões, roubos, furtos, etc.). Amparada pela Constituição Federal (Artigo 5º, incisos XVII e XVIII), é uma modalidade legal, moderna e justa para proteger o seu patrimônio por um valor muito mais acessível.",
-    category: "Geral",
+    question: "A Uniauto cobre motoristas de aplicativo (Uber, 99, táxi e entregadores)?",
+    answer: "SIM, COM CERTEZA! A Uniauto Brasil oferece proteção veicular especialmente desenhada para quem trabalha com aplicativo (Uber, 99, táxi e entregadores de moto). Diferente de seguradoras tradicionais que aumentam absurdamente o valor ou recusam motoristas de app, nós temos planos justos com assistência 24h e suporte total para você nunca ficar na mão.",
+    category: "App",
   },
   {
-    question: "Qual a diferença entre a Proteção Veicular da Uniauto e o Seguro Tradicional?",
-    answer: "As principais diferenças são: na Uniauto você NÃO tem análise de perfil (idade, solteiro, cep de risco, garagem), não há consulta ao SPC/Serasa, o pagamento é mensal sem comprometer o limite total do cartão de crédito, e o valor chega a ser até 60% mais econômico, oferecendo as mesmas garantias essenciais de 100% da FIPE e assistência 24h.",
-    category: "Comparativo",
+    question: "Carros elétricos e motos elétricas têm cobertura na Uniauto?",
+    answer: "Sim! Agora a proteção Uniauto Brasil também está disponível para carros elétricos (EVs), híbridos e motos elétricas. Cobrimos colisão, roubo, furto, danos elétricos decorrentes de sinistro e fenômenos naturais, com rede de assistência e guincho preparados para veículos eletrificados.",
+    category: "Elétricos",
   },
   {
-    question: "Quem pode conduzir o meu veículo protegido?",
-    answer: "Qualquer pessoa devidamente habilitada perante as leis de trânsito brasileiras pode conduzir o veículo. Se seu filho, cônjuge, funcionário ou amigo estiver dirigindo e acontecer um sinistro, a cobertura é válida normalmente sem nenhuma redução.",
-    category: "Regras",
+    question: "Quanto custam os planos da Uniauto Brasil?",
+    answer: "Nossos planos são extremamente acessíveis: plano para moto a partir de R$ 50,00/mês e plano para carro a partir de R$ 100,00/mês! Todos com 100% da Tabela FIPE, assistência 24h e sem consulta ao SPC/Serasa.",
+    category: "Valores",
+  },
+  {
+    question: "Como funciona a economia a partir de 10% na conta de energia?",
+    answer: "É um benefício exclusivo para associados Uniauto Brasil! Através da nossa parceria de energia limpa compartilhada, você garante um desconto a partir de 10% todo mês direto na sua fatura de energia elétrica residencial ou comercial. Sem necessidade de obras, sem placas solares no telhado e sem nenhum custo de instalação.",
+    category: "Benefícios",
+  },
+  {
+    question: "A Uniauto Brasil é filiada à FAN?",
+    answer: "Sim! A Uniauto Brasil é filiada à FAN (Federação / Associação Nacional de Proteção Veicular), o que atesta a conformidade das nossas regras associativas, solidez patrimonial, transparência de rateio mútuo e respaldo aos direitos de cada associado.",
+    category: "Institucional",
   },
   {
     question: "Preciso ter CNH ou o carro quitado e no meu nome?",
@@ -313,18 +423,8 @@ export const FAQ_LIST: FaqItem[] = [
     category: "Adesão",
   },
   {
-    question: "Como funciona a cobertura de 100% da Tabela FIPE?",
-    answer: "Caso seu veículo sofra perda total por colisão, incêndio, desastre natural ou seja roubado/furtado e não recuperado, você é ressarcido com base em 100% do valor da Tabela FIPE do mês do evento, conforme regulamento da associação.",
-    category: "Coberturas",
-  },
-  {
     question: "A Assistência 24h funciona fora de Alagoas?",
     answer: "Sim! A Uniauto possui cobertura e assistência 24 horas em todo o território nacional. Se você viajar para São Paulo, Rio, Bahia, Pernambuco ou qualquer outro estado e precisar de guincho, chaveiro ou socorro mecânico, nossa central 0800 atenderá prontamente.",
     category: "Assistência",
-  },
-  {
-    question: "Em quanto tempo meu veículo já estará protegido?",
-    answer: "Assim que você realiza o envio das fotos para a vistoria digital e a taxa de adesão é confirmada, seu veículo já entra na base ativa com proteção imediata, muitas vezes no mesmo dia em poucas horas!",
-    category: "Adesão",
   },
 ];

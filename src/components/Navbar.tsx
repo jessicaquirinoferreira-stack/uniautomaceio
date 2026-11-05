@@ -17,14 +17,14 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'Início', href: '#inicio' },
+    { label: 'Planos', href: '#planos' },
+    { label: 'Conta de Luz -10%', href: '#beneficio-energia' },
+    { label: 'Diferenciais', href: '#diferenciais' },
     { label: 'Coberturas', href: '#coberturas' },
     { label: 'Benefícios', href: '#beneficios' },
-    { label: 'Diferenciais', href: '#diferenciais' },
     { label: 'Como Funciona', href: '#como-funciona' },
-    { label: 'Por que a Uniauto', href: '#por-que-uniauto' },
     { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'FAQ', href: '#faq' },
-    { label: 'Contato', href: '#contato' },
   ];
 
   const whatsappQuoteUrl = `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent(
@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
               Central 24h
             </span>
             <span className="hidden sm:inline text-blue-100 font-medium">
-              Associação de Proteção Veicular • CNPJ {UNIAUTO_INFO.cnpj}
+              Uniauto Brasil • Filiada à FAN • CNPJ {UNIAUTO_INFO.cnpj}
             </span>
           </div>
           <div className="flex items-center gap-4 text-blue-100 font-medium">

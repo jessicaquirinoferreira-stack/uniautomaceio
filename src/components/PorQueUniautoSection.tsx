@@ -17,8 +17,8 @@ export const PorQueUniautoSection: React.FC = () => {
   const pilares = [
     {
       icon: ShieldCheck,
-      title: "Solidez e Segurança Jurídica",
-      desc: "Associação constituída sob o CNPJ 46.722.227/0001-41 e amparada pelo Art. 5º da Constituição Federal, garantindo total legitimidade ao seu patrimônio.",
+      title: "Filiada à FAN & Solidez Jurídica",
+      desc: "Associação filiada à FAN (Federação / Associação Nacional de Proteção Veicular), constituída sob o CNPJ 46.722.227/0001-41 e amparada pelo Art. 5º da Constituição Federal.",
       color: "from-[#003DA5] to-blue-700",
     },
     {

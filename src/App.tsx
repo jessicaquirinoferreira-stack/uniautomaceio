@@ -6,6 +6,8 @@
 import React from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { PlanosSection } from './components/PlanosSection';
+import { BeneficioEnergiaSection } from './components/BeneficioEnergiaSection';
 import { DiferenciaisBanner } from './components/DiferenciaisBanner';
 import { CoberturasSection } from './components/CoberturasSection';
 import { BeneficiosSection } from './components/BeneficiosSection';
@@ -27,45 +29,48 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section com destaque para Apps, Elétricos, Valores e Simulador */}
         <HeroSection />
 
-        {/* 2. Important Diferenciais Banner */}
+        {/* 2. Seção de Planos & Valores (Moto R$ 50 | Carro R$ 100) */}
+        <PlanosSection />
+
+        {/* 3. Benefício Exclusivo: Economia a partir de 10% na Fatura de Energia */}
+        <BeneficioEnergiaSection />
+
+        {/* 4. Nossos Diferenciais (App Uber/99, Elétricos, Sem CNH, FAN, Sem SPC) */}
         <DiferenciaisBanner />
 
-        {/* 3. Coberturas Section */}
+        {/* 5. Coberturas Completas 100% FIPE */}
         <CoberturasSection />
 
-        {/* 4. Benefícios Section */}
+        {/* 6. Benefícios & Assistência 24 Horas em todo o Brasil */}
         <BeneficiosSection />
 
-        {/* 5. Como Funciona Passo a Passo */}
+        {/* 7. Como Funciona Passo a Passo */}
         <ComoFuncionaSection />
 
-        {/* 6. Por Que Escolher a Uniauto */}
+        {/* 8. Por Que Escolher a Uniauto Brasil • Filiada à FAN */}
         <PorQueUniautoSection />
 
-        {/* 7. Comparativo Uniauto vs Seguradora */}
+        {/* 9. Comparativo Uniauto vs Seguradoras Tradicionais */}
         <ComparativoSection />
 
-        {/* 8. Depoimentos & Prova Social / Instagram Showcase */}
+        {/* 10. Depoimentos Reais de Associados */}
         <DepoimentosSection />
 
-        {/* 9. FAQ Accordion */}
+        {/* 11. FAQ Accordion com Dúvidas de App, Elétricos e Energia */}
         <FaqSection />
 
-        {/* 10. CTA Final Forte */}
+        {/* 12. CTA Final Forte */}
         <CtaSection />
       </main>
 
-      {/* 11. Footer Completo com CNPJ 46.722.227/0001-41 */}
+      {/* 13. Footer Completo com CNPJ e Filiação à FAN */}
       <Footer />
 
-      {/* Floating Elements */}
-      {/* Fixed on the Right: WhatsApp and Instagram */}
+      {/* Floating Triggers */}
       <FloatingButtons />
-
-      {/* Fixed on the Left: Virtual Assistant Chatbot (Luma) */}
       <ChatAssistantModal />
     </div>
   );

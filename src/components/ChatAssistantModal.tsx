@@ -34,11 +34,11 @@ export const ChatAssistantModal: React.FC = () => {
   ]);
 
   const quickQuestions = [
+    { label: '🚗 Trabalho na Uber / 99', query: 'Sou motorista de aplicativo (Uber/99). Como funciona?' },
+    { label: '⚡ Carros e Motos Elétricas', query: 'Vocês protegem carros elétricos e motos elétricas?' },
+    { label: '💡 Desconto 10% na Conta de Luz', query: 'Como funciona o benefício de desconto na conta de energia?' },
+    { label: '💰 Planos (Moto R$50 | Carro R$100)', query: 'Quais os valores dos planos da Uniauto?' },
     { label: '🛡️ Quais são as coberturas?', query: 'Quais são as coberturas?' },
-    { label: '⚖️ Diferença para seguro?', query: 'Qual a diferença para seguro?' },
-    { label: '📄 Preciso ter CNH?', query: 'Preciso ter CNH para contratar?' },
-    { label: '🚨 Como funciona o guincho?', query: 'Como funciona o guincho e a assistência 24h?' },
-    { label: '💰 Quero fazer uma cotação', query: 'Quero fazer uma cotação agora' },
     { label: '👤 Falar com atendente humano', query: 'Quero falar com um consultor humano' },
   ];
 
@@ -73,11 +73,32 @@ export const ChatAssistantModal: React.FC = () => {
       let botReply = '';
       let action: Message['actionButton'] = undefined;
 
-      if (lower.includes('cot') || lower.includes('preço') || lower.includes('valor') || lower.includes('quanto') || lower.includes('simul')) {
-        botReply = 'Com certeza! Nossos planos começam a partir de valores super acessíveis com 100% da Tabela FIPE e guincho ilimitado. Para você receber o cálculo exato do seu veículo em menos de 2 minutos, nosso consultor já está a postos no WhatsApp!';
+      if (lower.includes('uber') || lower.includes('99') || lower.includes('aplicativo') || lower.includes('app') || lower.includes('motorista')) {
+        botReply = 'Sim! A Uniauto Brasil oferece proteção veicular especialmente desenhada para motoristas de Uber, 99, táxi e entregadores. Não temos acréscimos abusivos por rodar muito e você conta com guincho ilimitado e carro reserva para não ficar sem faturamento!';
+        action = {
+          label: 'Cotar Plano para App no WhatsApp',
+          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Sou motorista de aplicativo (Uber/99) e gostaria de fazer uma cotação especial.')}`,
+          type: 'whatsapp',
+        };
+      } else if (lower.includes('elétrico') || lower.includes('eletrico') || lower.includes('elétrica') || lower.includes('eletrica') || lower.includes('hibrid') || lower.includes('byd')) {
+        botReply = 'Agora a Uniauto Brasil também protege Carros Elétricos (EVs), Híbridos e Motos Elétricas! Cobrimos colisão, roubo, furto, alagamentos e danos elétricos com suporte especializado e 100% da Tabela FIPE!';
+        action = {
+          label: 'Cotar Veículo Elétrico no WhatsApp',
+          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Tenho um veículo elétrico/híbrido e gostaria de cotar a proteção na Uniauto Brasil.')}`,
+          type: 'whatsapp',
+        };
+      } else if (lower.includes('energia') || lower.includes('luz') || lower.includes('fatura') || lower.includes('10%') || lower.includes('conta')) {
+        botReply = 'Esse é o nosso grande benefício exclusivo! Associados Uniauto têm direito a uma economia a partir de 10% direto na fatura de energia da sua casa ou empresa. Sem precisar fazer obras e sem instalar placas solares!';
+        action = {
+          label: 'Ativar Desconto na Conta de Luz',
+          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Gostaria de ativar meu desconto de 10% na fatura de energia como associado Uniauto.')}`,
+          type: 'whatsapp',
+        };
+      } else if (lower.includes('cot') || lower.includes('preço') || lower.includes('valor') || lower.includes('quanto') || lower.includes('plano') || lower.includes('50') || lower.includes('100')) {
+        botReply = 'Nossos planos são super acessíveis: Plano para moto a partir de R$ 50,00/mês e Plano para carro a partir de R$ 100,00/mês! Todos com 100% da FIPE, guincho ilimitado e filiação à FAN.';
         action = {
           label: 'Fazer Cotação no WhatsApp Agora',
-          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá Luma! Gostaria de fazer uma cotação oficial do meu veículo com a Uniauto Maceió.')}`,
+          url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá Luma! Gostaria de fazer uma cotação com os planos a partir de R$ 50 (moto) ou R$ 100 (carro).')}`,
           type: 'whatsapp',
         };
       } else if (lower.includes('cobertura') || lower.includes('cobre') || lower.includes('prote')) {

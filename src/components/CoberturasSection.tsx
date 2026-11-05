@@ -10,6 +10,7 @@ import {
   Sparkles,
   ArrowRight,
   X,
+  Zap,
 } from 'lucide-react';
 import { COBERTURAS, Cobertura, UNIAUTO_INFO } from '../data/uniautoData';
 
@@ -21,6 +22,8 @@ export const CoberturasSection: React.FC = () => {
     switch (iconName) {
       case 'ShieldCheck':
         return <ShieldCheck {...props} className="w-6 h-6 text-[#00A859]" />;
+      case 'Zap':
+        return <Zap {...props} className="w-6 h-6 text-emerald-500" />;
       case 'Lock':
         return <Lock {...props} className="w-6 h-6 text-[#003DA5]" />;
       case 'CarFront':

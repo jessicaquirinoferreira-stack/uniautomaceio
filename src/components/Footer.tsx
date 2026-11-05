@@ -19,11 +19,14 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <UniautoLogo size="lg" darkText={true} />
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mt-3 font-medium">
-              {UNIAUTO_INFO.slogan}. A Uniauto Maceió Alagoas integra a Uniauto Brasil, oferecendo proteção patrimonial de excelência, assistência 24h e clube de benefícios mútuo em todo o território nacional.
+              {UNIAUTO_INFO.slogan}. A Uniauto Brasil oferece proteção patrimonial de excelência, assistência 24h, planos para motoristas de app e veículos elétricos, além de clube de benefícios com economia de energia em todo o território nacional.
             </p>
-            <div className="pt-2">
-              <span className="inline-block px-3 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-xs">
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="inline-block px-3 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-mono text-slate-700 shadow-2xs">
                 CNPJ: <strong className="text-slate-900 font-bold">{UNIAUTO_INFO.cnpj}</strong>
+              </span>
+              <span className="inline-block px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-[11px] font-bold text-[#003DA5] shadow-2xs">
+                Filiada à FAN (Nacional)
               </span>
             </div>
 
@@ -33,7 +36,7 @@ export const Footer: React.FC = () => {
                 href={UNIAUTO_INFO.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-pink-500 flex items-center justify-center text-slate-600 hover:text-pink-600 transition group shadow-xs"
+                className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-pink-500 flex items-center justify-center text-slate-600 hover:text-pink-600 transition group shadow-2xs"
                 aria-label="Instagram da Uniauto Maceió"
               >
                 <Instagram className="w-5 h-5 group-hover:scale-110 transition" />
@@ -43,7 +46,7 @@ export const Footer: React.FC = () => {
                 href={whatsappQuoteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-[#00A859] flex items-center justify-center text-slate-600 hover:text-[#00A859] transition group shadow-xs"
+                className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-[#00A859] flex items-center justify-center text-slate-600 hover:text-[#00A859] transition group shadow-2xs"
                 aria-label="WhatsApp da Uniauto Maceió"
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition" />
@@ -61,19 +64,22 @@ export const Footer: React.FC = () => {
                 <a href="#inicio" className="hover:text-[#003DA5] transition">Início</a>
               </li>
               <li>
+                <a href="#planos" className="text-[#00A859] font-black hover:underline transition">Planos Moto R$50 | Carro R$100</a>
+              </li>
+              <li>
+                <a href="#beneficio-energia" className="text-[#003DA5] font-black hover:underline transition">Conta de Luz -10% Off</a>
+              </li>
+              <li>
+                <a href="#diferenciais" className="hover:text-[#003DA5] transition">Diferenciais (App & Elétricos)</a>
+              </li>
+              <li>
                 <a href="#coberturas" className="hover:text-[#003DA5] transition">Coberturas Completas</a>
               </li>
               <li>
                 <a href="#beneficios" className="hover:text-[#003DA5] transition">Assistência 24 Horas</a>
               </li>
               <li>
-                <a href="#diferenciais" className="hover:text-[#003DA5] transition">Diferenciais Sem Burocracia</a>
-              </li>
-              <li>
                 <a href="#como-funciona" className="hover:text-[#003DA5] transition">Como Funciona o Passo a Passo</a>
-              </li>
-              <li>
-                <a href="#por-que-uniauto" className="hover:text-[#003DA5] transition">Por que a Uniauto</a>
               </li>
               <li>
                 <a href="#depoimentos" className="hover:text-[#003DA5] transition">Depoimentos de Associados</a>
