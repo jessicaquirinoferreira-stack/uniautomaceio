@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Zap, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, DollarSign, Maximize2, X } from 'lucide-react';
 import { UNIAUTO_INFO } from '../data/uniautoData';
+import { TiltCard } from './ui/TiltCard';
+import { BorderBeam } from './ui/BorderBeam';
 
 export const BeneficioEnergiaSection: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,36 +34,39 @@ export const BeneficioEnergiaSection: React.FC = () => {
 
         {/* Highlight Card with Prominent Image & Value Prop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Prominent Image Showcase */}
+          {/* Left Column: Prominent Image Showcase with Tilt & BorderBeam */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl p-1 uniauto-gradient shadow-2xl shadow-emerald-900/10 group">
-              <div className="relative rounded-[22px] overflow-hidden bg-white">
-                <img
-                  src={UNIAUTO_INFO.energyBenefitImageUrl}
-                  alt="Benefício Exclusivo Uniauto Brasil - Economia na Conta de Energia"
-                  className="w-full h-auto max-h-[540px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.02] cursor-pointer"
-                  onClick={() => setModalOpen(true)}
-                  loading="eager"
-                />
+            <TiltCard maxTilt={5}>
+              <div className="relative rounded-3xl p-1 uniauto-gradient shadow-2xl shadow-emerald-900/10 group overflow-hidden">
+                <BorderBeam colorFrom="#10B981" colorTo="#003DA5" size={260} duration={8} />
+                <div className="relative rounded-[22px] overflow-hidden bg-white">
+                  <img
+                    src={UNIAUTO_INFO.energyBenefitImageUrl}
+                    alt="Benefício Exclusivo Uniauto Brasil - Economia na Conta de Energia"
+                    className="w-full h-auto max-h-[540px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.02] cursor-pointer"
+                    onClick={() => setModalOpen(true)}
+                    loading="eager"
+                  />
 
-                {/* Floating Badge on Image */}
-                <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#00A859] text-white text-xs font-black shadow-lg flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 fill-current" />
-                  <span>Benefício 100% Real</span>
+                  {/* Floating Badge on Image */}
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-[#00A859] text-white text-xs font-black shadow-lg flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 fill-current" />
+                    <span>Benefício 100% Real</span>
+                  </div>
+
+                  {/* Zoom prompt */}
+                  <button
+                    type="button"
+                    onClick={() => setModalOpen(true)}
+                    className="absolute bottom-4 right-4 p-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-xs transition shadow-md flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+                    aria-label="Ampliar imagem do benefício"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                    <span className="hidden sm:inline">Ampliar</span>
+                  </button>
                 </div>
-
-                {/* Zoom prompt */}
-                <button
-                  type="button"
-                  onClick={() => setModalOpen(true)}
-                  className="absolute bottom-4 right-4 p-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-xs transition shadow-md flex items-center gap-1.5 text-xs font-bold cursor-pointer"
-                  aria-label="Ampliar imagem do benefício"
-                >
-                  <Maximize2 className="w-4 h-4" />
-                  <span className="hidden sm:inline">Ampliar</span>
-                </button>
               </div>
-            </div>
+            </TiltCard>
           </div>
 
           {/* Right Column: Persuasive Value Breakdown */}

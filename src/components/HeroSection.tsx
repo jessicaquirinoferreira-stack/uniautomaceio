@@ -2,14 +2,34 @@ import React from 'react';
 import { CheckCircle2, ArrowRight, Sparkles, Zap, ShieldCheck } from 'lucide-react';
 import { UNIAUTO_INFO } from '../data/uniautoData';
 import { QuickQuoteCard } from './QuickQuoteCard';
+import { Particles } from './ui/Particles';
+import { FlipWords } from './ui/FlipWords';
+import { ShimmerButton } from './ui/ShimmerButton';
+import { TiltCard } from './ui/TiltCard';
 
 export const HeroSection: React.FC = () => {
   const whatsappQuoteUrl = `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent(
     'Olá! Vi o site da Uniauto Brasil e gostaria de me proteger com os planos a partir de R$ 50 (moto) ou R$ 100 (carro).'
   )}`;
 
+  const heroWords = [
+    'Roda todo dia',
+    'Trabalha na Uber & 99',
+    'Tem Carro Elétrico & Híbrido',
+    'Tem Moto de Entrega',
+    'Exige Guincho 24h Ilimitado',
+  ];
+
   return (
     <section id="inicio" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-6 pb-16 bg-gradient-to-b from-white via-slate-50 to-blue-50/40">
+      {/* Magic UI / React Bits Canvas Particle Field */}
+      <Particles
+        className="absolute inset-0 z-0 pointer-events-none"
+        quantity={40}
+        color="#003DA5"
+        staticity={40}
+        ease={55}
+      />
       {/* Light automotive subtle background */}
       <div className="absolute inset-0 z-0 select-none opacity-15 pointer-events-none">
         <img
@@ -39,7 +59,7 @@ export const HeroSection: React.FC = () => {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#003DA5] text-xs font-black shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#003DA5]" />
-                <span>Filiada à FAN</span>
+                <span>Filiada à AAAPV & FAN</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-[#00A859] text-xs font-black shadow-2xs">
                 <Zap className="w-3.5 h-3.5 text-[#00A859]" />
@@ -66,10 +86,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Big Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-black text-slate-900 tracking-tight leading-[1.14]">
               Proteção Veicular Completa para quem{' '}
-              <span className="text-[#003DA5]">Roda todo dia</span> e{' '}
-              <span className="text-[#00A859]">Trabalha em App</span>
+              <br className="hidden sm:inline" />
+              <FlipWords words={heroWords} className="text-[#003DA5]" />
             </h1>
 
             {/* Subtitle with new differentiators */}
@@ -103,15 +123,21 @@ export const HeroSection: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-              {/* Button 1: WhatsApp Quero Me Proteger */}
+              {/* Button 1: WhatsApp Quero Me Proteger with ShimmerButton */}
               <a
                 href={whatsappQuoteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-4 px-8 rounded-2xl bg-[#00A859] hover:bg-[#008f4c] text-white font-black text-base sm:text-lg flex items-center justify-center gap-3 shadow-xl shadow-emerald-600/25 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
+                className="inline-block"
               >
-                <span>Quero Me Proteger Agora</span>
-                <ArrowRight className="w-5 h-5" />
+                <ShimmerButton
+                  shimmerColor="#6EE7B7"
+                  background="linear-gradient(135deg, #00A859 0%, #008f4c 100%)"
+                  className="w-full sm:w-auto text-white font-black text-base sm:text-lg px-8 py-4 shadow-xl shadow-emerald-600/25 flex items-center justify-center gap-3"
+                >
+                  <span>Quero Me Proteger Agora</span>
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </ShimmerButton>
               </a>
 
               {/* Button 2: Ver Planos e Benefícios */}
@@ -139,14 +165,16 @@ export const HeroSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#00A859] shrink-0" />
-                <span>Filiada à FAN</span>
+                <span>Filiada AAAPV & FAN</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Quick Quote Card Simulator */}
+          {/* Right Column: Quick Quote Card Simulator with 3D Tilt */}
           <div className="lg:col-span-5 relative">
-            <QuickQuoteCard />
+            <TiltCard maxTilt={5}>
+              <QuickQuoteCard />
+            </TiltCard>
           </div>
         </div>
       </div>

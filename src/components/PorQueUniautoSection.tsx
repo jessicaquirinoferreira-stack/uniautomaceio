@@ -1,6 +1,8 @@
 import React from 'react';
 import { Award, ShieldCheck, Zap, HeartHandshake, CheckCircle2, ArrowRight } from 'lucide-react';
 import { UNIAUTO_INFO } from '../data/uniautoData';
+import { NumberTicker } from './ui/NumberTicker';
+import { CardSpotlight } from './ui/CardSpotlight';
 
 export const PorQueUniautoSection: React.FC = () => {
   const whatsappQuoteUrl = `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent(
@@ -8,17 +10,17 @@ export const PorQueUniautoSection: React.FC = () => {
   )}`;
 
   const stats = [
-    { value: "+15.000", label: "Veículos Protegidos", desc: "Em Maceió e em todo o Brasil" },
-    { value: "99,4%", label: "Índice de Satisfação", desc: "Entre nossos associados ativos" },
-    { value: "35 min", label: "Tempo Médio Guincho", desc: "Atendimento veloz da central 24h" },
-    { value: "R$ 150 mil", label: "Proteção a Terceiros", desc: "Tranquilidade garantida em colisões" },
+    { target: 15000, prefix: '+', suffix: '', label: 'Veículos Protegidos', desc: 'Em Maceió e em todo o Brasil' },
+    { target: 99, prefix: '', suffix: ',4%', label: 'Índice de Satisfação', desc: 'Entre nossos associados ativos' },
+    { target: 35, prefix: '', suffix: ' min', label: 'Tempo Médio Guincho', desc: 'Atendimento veloz da central 24h' },
+    { target: 150, prefix: 'R$ ', suffix: ' mil', label: 'Proteção a Terceiros', desc: 'Tranquilidade garantida em colisões' },
   ];
 
   const pilares = [
     {
       icon: ShieldCheck,
-      title: "Filiada à FAN & Solidez Jurídica",
-      desc: "Associação filiada à FAN (Federação / Associação Nacional de Proteção Veicular), constituída sob o CNPJ 46.722.227/0001-41 e amparada pelo Art. 5º da Constituição Federal.",
+      title: "Filiada à AAAPV & FAN",
+      desc: "Associação amparada pela AAAPV (Agência de Autorregulamentação) e pela FAN (Força Associativa Nacional), com CNPJ regular 46.722.227/0001-41 e plena conformidade legal.",
       color: "from-[#003DA5] to-blue-700",
     },
     {
@@ -30,7 +32,7 @@ export const PorQueUniautoSection: React.FC = () => {
     {
       icon: HeartHandshake,
       title: "Atendimento Humanizado 24h",
-      desc: "Quando acontece uma colisão ou pane mecânica, nossa equipe atende você de forma ágil, prestativa e sem esperas intermináveis.",
+      desc: "Central própria de monitoramento com atendimento humano contínuo pelo 0800 940 0587 ou WhatsApp (82) 99644-5705.",
       color: "from-[#00A859] to-emerald-600",
     },
     {
@@ -59,7 +61,7 @@ export const PorQueUniautoSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Impact Numbers */}
+        {/* Impact Numbers with NumberTicker */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {stats.map((stat, i) => (
             <div
@@ -67,7 +69,12 @@ export const PorQueUniautoSection: React.FC = () => {
               className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 text-center hover:border-[#003DA5]/40 transition duration-300 shadow-sm hover:shadow-md"
             >
               <div className="text-2xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#003DA5] to-[#00A859]">
-                {stat.value}
+                <NumberTicker
+                  value={stat.target}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                  duration={2}
+                />
               </div>
               <div className="text-sm font-black text-slate-900 mt-1">{stat.label}</div>
               <div className="text-xs text-slate-500 mt-0.5 font-medium">{stat.desc}</div>
@@ -75,13 +82,14 @@ export const PorQueUniautoSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Pillars Grid */}
+        {/* Pillars Grid with CardSpotlight */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pilares.map((pilar, idx) => {
             const Icon = pilar.icon;
             return (
-              <div
+              <CardSpotlight
                 key={idx}
+                spotlightColor="rgba(0, 61, 165, 0.12)"
                 className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-[#003DA5]/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xs hover:shadow-xl"
               >
                 <div>
@@ -100,9 +108,70 @@ export const PorQueUniautoSection: React.FC = () => {
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   <span>Diferencial Exclusivo</span>
                 </div>
-              </div>
+              </CardSpotlight>
             );
           })}
+        </div>
+
+        {/* Institutional Spotlight: Card 08 (Collage Nacional) & Card 06 (Monitoramento Real) */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-xl group">
+            <div className="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+              <img
+                src="/assets/uniauto_cards/card_08.jpg"
+                alt="Uniauto Brasil Estrutura Nacional"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-4 left-4 bg-[#003DA5] text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                Presença Nacional
+              </div>
+            </div>
+            <div className="p-6">
+              <h4 className="text-xl font-black text-slate-900">Uniauto Brasil • Força Associativa Nacional</h4>
+              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Mais de uma década de história, sede própria, rede credenciada e presença ativa em convenções e feiras do setor de proteção veicular em todo o país.
+              </p>
+              <div className="mt-4 flex items-center justify-between text-xs font-bold text-[#003DA5]">
+                <span>0800 940 0587</span>
+                <a
+                  href="https://uniautobrasil.org.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline flex items-center gap-1 font-black"
+                >
+                  uniautobrasil.org.br &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-xl group">
+            <div className="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+              <img
+                src="/assets/uniauto_cards/card_06.jpg"
+                alt="Central de Monitoramento e Despacho Uniauto"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-4 left-4 bg-[#00A859] text-white px-3 py-1 rounded-full text-xs font-black shadow-md">
+                Monitoramento 24h Real
+              </div>
+            </div>
+            <div className="p-6">
+              <h4 className="text-xl font-black text-slate-900">Central Própria de Operações & Socorro</h4>
+              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Nossos operadores em tempo real acionam guincho rápido, chaveiro, socorro elétrico ou hospedagem imediatamente ao seu chamado, 24 horas por dia, 365 dias por ano.
+              </p>
+              <div className="mt-4 flex items-center justify-between text-xs font-bold text-[#00A859]">
+                <span>Plantão Contínuo</span>
+                <a
+                  href={UNIAUTO_INFO.central0800Tel}
+                  className="hover:underline flex items-center gap-1 font-black text-[#003DA5]"
+                >
+                  Ligar 0800 940 0587 &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom CTA bar */}

@@ -60,6 +60,81 @@ export const ComoFuncionaSection: React.FC = () => {
           ))}
         </div>
 
+        {/* Official Associate Event Guidance (Card 09) */}
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#003DA5] to-[#00A859] p-6 sm:p-10 text-white shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider">
+                Procedimento Oficial do Associado
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black mt-3">
+                Caro Associado, em Caso de Evento:
+              </h3>
+              <p className="text-sm sm:text-base text-blue-100 mt-2 leading-relaxed">
+                A Uniauto Brasil garante agilidade e suporte no momento em que você mais precisa. Siga os dois passos obrigatórios:
+              </p>
+
+              <div className="mt-6 space-y-4">
+                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20">
+                  <div className="w-8 h-8 rounded-xl bg-white text-[#003DA5] font-black flex items-center justify-center shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-sm sm:text-base">
+                      Entre em contato imediatamente com a Assistência 24h
+                    </h4>
+                    <p className="text-xs sm:text-sm text-blue-100 mt-0.5">
+                      Ligue gratuitamente para <strong className="text-white text-base">0800 940 0587</strong> (+55 800 940 0587) para envio imediato de guincho, socorro ou apoio.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-300 text-slate-900 font-black flex items-center justify-center shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-sm sm:text-base">
+                      Realize a abertura no local do evento enviando fotos e vídeos
+                    </h4>
+                    <p className="text-xs sm:text-sm text-blue-100 mt-0.5">
+                      Acesse diretamente pelo celular o portal: <strong className="text-white underline">uniautobrasil.org.br/acionamento</strong> para documentar a vistoria inicial.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={UNIAUTO_INFO.central0800Tel}
+                  className="py-3 px-5 rounded-xl bg-white text-[#003DA5] hover:bg-slate-100 font-black text-xs sm:text-sm flex items-center gap-2 shadow-md transition hover:scale-105 active:scale-95"
+                >
+                  <span>Ligar 0800 940 0587</span>
+                </a>
+
+                <a
+                  href={UNIAUTO_INFO.acionamentoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-5 rounded-xl bg-slate-900/50 hover:bg-slate-900/70 border border-white/30 text-white font-black text-xs sm:text-sm flex items-center gap-2 transition"
+                >
+                  <span>Acessar uniautobrasil.org.br/acionamento</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex justify-center">
+              <div className="w-60 sm:w-64 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/30 bg-slate-900">
+                <img
+                  src="/assets/uniauto_cards/card_09.jpg"
+                  alt="Instruções de Acionamento Uniauto Brasil"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Action Trigger */}
         <div className="mt-14 text-center">
           <a

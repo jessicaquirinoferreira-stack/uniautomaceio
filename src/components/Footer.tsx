@@ -87,6 +87,19 @@ export const Footer: React.FC = () => {
                 <a href="#como-funciona" className="hover:text-[#003DA5] transition">Como Funciona o Passo a Passo</a>
               </li>
               <li>
+                <a href="#galeria-oficial" className="text-[#003DA5] font-black hover:underline transition">Campanhas & Destaques Oficiais</a>
+              </li>
+              <li>
+                <a
+                  href={UNIAUTO_INFO.acionamentoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 font-bold hover:underline transition"
+                >
+                  Acionamento Online (Sinistro) &rarr;
+                </a>
+              </li>
+              <li>
                 <a href="#depoimentos" className="hover:text-[#003DA5] transition">Depoimentos de Associados</a>
               </li>
               <li>
@@ -136,12 +149,10 @@ export const Footer: React.FC = () => {
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-amber-500 shrink-0" />
                 <a
-                  href={`https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Preciso de atendimento/assistência 24h da Uniauto.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-700 hover:text-[#003DA5] transition"
+                  href={UNIAUTO_INFO.central0800Tel}
+                  className="text-slate-700 hover:text-[#003DA5] transition font-bold"
                 >
-                  Plantão & Central: <strong>{UNIAUTO_INFO.whatsappFormatted}</strong>
+                  Central 24h: <strong>{UNIAUTO_INFO.central0800}</strong>
                 </a>
               </div>
               <div className="flex items-center gap-2.5">

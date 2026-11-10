@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, ShieldCheck, ChevronRight } from 'lucide-react';
 import { UniautoLogo } from './UniautoLogo';
 import { UNIAUTO_INFO } from '../data/uniautoData';
+import { ScrollProgress } from './ui/ScrollProgress';
+import { AnimatedShinyText } from './ui/AnimatedShinyText';
+import { ShimmerButton } from './ui/ShimmerButton';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +27,7 @@ export const Navbar: React.FC = () => {
     { label: 'Coberturas', href: '#coberturas' },
     { label: 'Benefícios', href: '#beneficios' },
     { label: 'Como Funciona', href: '#como-funciona' },
+    { label: 'Campanhas', href: '#galeria-oficial' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -33,16 +37,23 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
+      {/* Magic UI Scroll Progress */}
+      <ScrollProgress />
+
       {/* Top emergency & branding ribbon in Deep Brand Blue */}
-      <div className="bg-[#003DA5] text-white text-[11px] sm:text-xs py-1.5 px-4 shadow-sm">
+      <div className="bg-[#003DA5] text-white text-[11px] sm:text-xs py-1.5 px-4 shadow-sm relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 font-bold text-white bg-[#00A859] px-2 py-0.5 rounded-full text-[10px]">
+            <a
+              href={UNIAUTO_INFO.central0800Tel}
+              title={`Ligar para Central 24h: ${UNIAUTO_INFO.central0800}`}
+              className="flex items-center gap-1.5 font-bold text-white bg-[#00A859] hover:bg-[#008f4c] px-2.5 py-0.5 rounded-full text-[10px] transition cursor-pointer shadow-xs"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Central 24h
-            </span>
+              <span>Central 24h: {UNIAUTO_INFO.central0800}</span>
+            </a>
             <span className="hidden sm:inline text-blue-100 font-medium">
-              Uniauto Brasil • Filiada à FAN • CNPJ {UNIAUTO_INFO.cnpj}
+              Uniauto Brasil • Filiada à AAAPV & FAN • CNPJ {UNIAUTO_INFO.cnpj}
             </span>
           </div>
           <div className="flex items-center gap-4 text-blue-100 font-medium">
@@ -91,16 +102,21 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA Button Desktop */}
+          {/* CTA Button Desktop with Magic UI ShimmerButton */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href={whatsappQuoteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#003DA5] to-[#00A859] hover:from-[#002f80] hover:to-[#008f4c] text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-blue-900/15 transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-block"
             >
-              <ShieldCheck className="w-4 h-4 text-white" />
-              <span>Faça sua Cotação Grátis</span>
+              <ShimmerButton
+                background="linear-gradient(135deg, #003DA5 0%, #00A859 100%)"
+                className="px-5 py-2.5 text-xs sm:text-sm font-extrabold shadow-md gap-2"
+              >
+                <ShieldCheck className="w-4 h-4 text-white" />
+                <span>Faça sua Cotação Grátis</span>
+              </ShimmerButton>
             </a>
           </div>
 

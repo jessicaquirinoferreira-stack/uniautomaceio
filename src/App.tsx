@@ -15,6 +15,7 @@ import { BeneficiosSection } from './components/BeneficiosSection';
 import { ComoFuncionaSection } from './components/ComoFuncionaSection';
 import { PorQueUniautoSection } from './components/PorQueUniautoSection';
 import { ComparativoSection } from './components/ComparativoSection';
+import { GaleriaOficialSection } from './components/GaleriaOficialSection';
 import { DepoimentosSection } from './components/DepoimentosSection';
 import { FaqSection } from './components/FaqSection';
 import { CtaSection } from './components/CtaSection';
@@ -45,28 +46,31 @@ export default function App() {
         {/* 5. Nossos Diferenciais (App Uber/99, Elétricos, Sem CNH, FAN, Sem SPC) */}
         <DiferenciaisBanner />
 
-        {/* 5. Coberturas Completas 100% FIPE */}
+        {/* 6. Coberturas Completas 100% FIPE */}
         <CoberturasSection />
 
-        {/* 6. Benefícios & Assistência 24 Horas em todo o Brasil */}
+        {/* 7. Benefícios & Assistência 24 Horas em todo o Brasil */}
         <BeneficiosSection />
 
-        {/* 7. Como Funciona Passo a Passo */}
+        {/* 8. Como Funciona Passo a Passo & Acionamento Oficial de Sinistro */}
         <ComoFuncionaSection />
 
-        {/* 8. Por Que Escolher a Uniauto Brasil • Filiada à FAN */}
+        {/* 9. Por Que Escolher a Uniauto Brasil • Filiada à AAAPV & FAN */}
         <PorQueUniautoSection />
 
-        {/* 9. Comparativo Uniauto vs Seguradoras Tradicionais */}
+        {/* 10. Comparativo Uniauto vs Seguradoras Tradicionais */}
         <ComparativoSection />
 
-        {/* 10. Depoimentos Reais de Associados */}
+        {/* 11. Campanhas & Materiais Oficiais Uniauto Brasil (Galeria Oficial) */}
+        <GaleriaOficialSection />
+
+        {/* 12. Depoimentos Reais de Associados */}
         <DepoimentosSection />
 
-        {/* 11. FAQ Accordion com Dúvidas de App, Elétricos e Energia */}
+        {/* 13. FAQ Accordion com Dúvidas de App, Elétricos, 0800 e Acionamento */}
         <FaqSection />
 
-        {/* 12. CTA Final Forte */}
+        {/* 14. CTA Final Forte */}
         <CtaSection />
       </main>
 

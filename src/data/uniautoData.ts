@@ -50,14 +50,20 @@ export const UNIAUTO_INFO = {
   name: "Uniauto Maceió Alagoas",
   nationalBrand: "Uniauto Brasil",
   segment: "Associação de Proteção Veicular & Patrimonial",
-  affiliation: "Filiada à FAN - Federação / Associação Nacional de Proteção Veicular",
-  fanBadgeText: "Filiada à FAN • Certificada e Regularizada",
+  affiliation: "Filiada à AAAPV (Agência de Autorregulamentação) e à FAN (Força Associativa Nacional)",
+  fanBadgeText: "Filiada à AAAPV & FAN • Certificada e Regularizada",
+  nationalPortalUrl: "https://uniautobrasil.org.br",
+  acionamentoUrl: "https://uniautobrasil.org.br/acionamento",
   slogan: "Especializada em Proteção Veicular | Confiança | Tranquilidade",
   impactPhrase: "Não conte com a sorte, conte com a Uniauto",
+  alwaysWithYouPhrase: "Sempre com Você!",
   cnpj: "46.722.227/0001-41",
   whatsappNumber: "5582996445705", // Alagoas DDD 82 99644-5705
   whatsappFormatted: "(82) 99644-5705",
   whatsappEmergency: "(82) 99644-5705",
+  central0800: "+55 800 940 0587",
+  central0800Display: "0800 940 0587",
+  central0800Tel: "tel:+558009400587",
   instagramUrl: "https://www.instagram.com/Uniautomaceio/",
   instagramHandle: "@Uniautomaceio",
   address: "Av. Fernandes Lima, 2500 - Farol, Maceió - AL, 57057-000",
@@ -68,6 +74,123 @@ export const UNIAUTO_INFO = {
   flyerIndique1Url: "/assets/aistudio/image_06881d10.png",
   flyerIndique2Url: "/assets/aistudio/image_4897bb1c.png",
 };
+
+export interface UniautoCard {
+  id: string;
+  imageUrl: string;
+  category: 'institucional' | 'eletricos' | 'motos' | 'rastreamento' | 'central' | 'acionamento';
+  title: string;
+  subtitle: string;
+  description: string;
+  badges: string[];
+  ctaText: string;
+  ctaLink: string;
+  isExternal?: boolean;
+}
+
+export const UNIAUTO_OFFICIAL_CARDS: UniautoCard[] = [
+  {
+    id: "card-01",
+    imageUrl: "/assets/uniauto_cards/card_01.jpg",
+    category: "institucional",
+    title: "Seu carro protegido. Sua paz garantida.",
+    subtitle: "Com a Uniauto você dirige tranquilo sabendo que cuidamos de tudo por você!",
+    description: "Proteção veicular completa com respaldo associativo da AAAPV e da FAN em Maceió e em todo o Brasil.",
+    badges: ["Filiada AAAPV", "Filiada FAN", "Proteção Total"],
+    ctaText: "Simular Proteção do Carro",
+    ctaLink: "#planos",
+  },
+  {
+    id: "card-02",
+    imageUrl: "/assets/uniauto_cards/card_02.jpg",
+    category: "eletricos",
+    title: "Proteção Completa para Elétricos e Híbridos",
+    subtitle: "Novidade Uniauto com suporte especializado para EVs e Híbridos",
+    description: "Cobertura de colisão, roubo, furto, terceiros, assistência 24h, vidros/retrovisores e carro reserva para veículos elétricos (BYD, GWM, etc.).",
+    badges: ["100% Elétricos", "Híbridos", "100% FIPE", "Assistência 24h"],
+    ctaText: "Cotar Veículo Elétrico",
+    ctaLink: "#planos",
+  },
+  {
+    id: "card-03",
+    imageUrl: "/assets/uniauto_cards/card_03.jpg",
+    category: "institucional",
+    title: "Não confie na sorte. Confie na UniAuto",
+    subtitle: "Proteção e Segurança para Carro e Moto",
+    description: "Não deixe seu patrimônio desprotegido. Conte com a segurança e solidez da maior associação de proteção veicular.",
+    badges: ["Proteção", "Segurança", "Moto & Carro"],
+    ctaText: "Fazer Cotação Grátis",
+    ctaLink: "#inicio",
+  },
+  {
+    id: "card-04",
+    imageUrl: "/assets/uniauto_cards/card_04.jpg",
+    category: "rastreamento",
+    title: "Com rastreamento 24h, o cuidado vai junto com você",
+    subtitle: "Localização em tempo real e bloqueio emergencial",
+    description: "Acompanhe seu veículo na palma da mão via aplicativo móvel, com central de monitoramento 24 horas pronta para agir.",
+    badges: ["Rastreamento 24h", "App no Celular", "Telemetria"],
+    ctaText: "Conhecer Rastreamento",
+    ctaLink: "#beneficios",
+  },
+  {
+    id: "card-05",
+    imageUrl: "/assets/uniauto_cards/card_05.jpg",
+    category: "motos",
+    title: "Sua moto protegida de segunda a segunda",
+    subtitle: "Plano para Motos a partir de R$ 50,00 por mês",
+    description: "Ideal para entregadores de app, motoboys e motociclistas do dia a dia. Guincho 24h ilimitado em colisão e 100% da Tabela FIPE.",
+    badges: ["Plano Moto R$ 50", "Sem Perfil de Condutor", "Assistência 24h"],
+    ctaText: "Proteger Minha Moto",
+    ctaLink: "#planos",
+  },
+  {
+    id: "card-06",
+    imageUrl: "/assets/uniauto_cards/card_06.jpg",
+    category: "central",
+    title: "Monitoramento 24h é com a Uniauto",
+    subtitle: "Central própria de atendimento e despacho em todo o Brasil",
+    description: "Equipe profissional de plantão contínuo pronta para enviar guincho, socorro mecânico, chaveiro ou apoio emergencial.",
+    badges: ["Central Própria 24h", "Plantão Nacional", "Atendimento Humano"],
+    ctaText: "Ligar na Central 0800",
+    ctaLink: "tel:+558009400587",
+  },
+  {
+    id: "card-07",
+    imageUrl: "/assets/uniauto_cards/card_07.jpg",
+    category: "rastreamento",
+    title: "Roubaram, e agora? Calma, com localização em tempo real resolve",
+    subtitle: "Sem Uniauto vs Com Uniauto",
+    description: "Enquanto quem não tem proteção entra em desespero, o associado Uniauto aciona nossa central com geolocalização precisa e apoio imediato.",
+    badges: ["Recuperação Veicular", "Sem Burocracia", "100% FIPE"],
+    ctaText: "Garantir Minha Tranquilidade",
+    ctaLink: "#coberturas",
+  },
+  {
+    id: "card-08",
+    imageUrl: "/assets/uniauto_cards/card_08.jpg",
+    category: "institucional",
+    title: "Uniauto Brasil • Estrutura Nacional",
+    subtitle: "0800 940 0587 • uniautobrasil.org.br",
+    description: "Centenas de colaboradores, eventos com associados, oficinas credenciadas e presença sólida em todo o território nacional.",
+    badges: ["Presença Nacional", "Sede Própria", "Oficinas Credenciadas"],
+    ctaText: "Acessar Portal Nacional",
+    ctaLink: "https://uniautobrasil.org.br",
+    isExternal: true,
+  },
+  {
+    id: "card-09",
+    imageUrl: "/assets/uniauto_cards/card_09.jpg",
+    category: "acionamento",
+    title: "Caro associado, em caso de evento:",
+    subtitle: "Acionamento rápido e descomplicado na palma da sua mão",
+    description: "1. Ligue imediatamente para a Assistência 24h (0800 940 0587). 2. Realize a abertura pelo link oficial uniautobrasil.org.br/acionamento enviando fotos e vídeos do local.",
+    badges: ["0800 940 0587", "Acionamento Online", "Sempre com Você"],
+    ctaText: "Abrir Acionamento Online",
+    ctaLink: "https://uniautobrasil.org.br/acionamento",
+    isExternal: true,
+  },
+];
 
 export interface IndiqueGanheConfig {
   title: string;
@@ -479,7 +602,7 @@ export const FAQ_LIST: FaqItem[] = [
   },
   {
     question: "A Assistência 24h funciona fora de Alagoas?",
-    answer: "Sim! A Uniauto possui cobertura e assistência 24 horas em todo o território nacional. Se você viajar para São Paulo, Rio, Bahia, Pernambuco ou qualquer outro estado e precisar de guincho, chaveiro ou socorro mecânico, nossa central 24h no WhatsApp (82) 99644-5705 atenderá prontamente.",
+    answer: "Sim! A Uniauto possui cobertura e assistência 24 horas em todo o território nacional. Se você viajar para São Paulo, Rio, Bahia, Pernambuco ou qualquer outro estado e precisar de guincho, chaveiro ou socorro mecânico, nossa Central 24h no +55 800 940 0587 (0800 940 0587) ou pelo WhatsApp (82) 99644-5705 atenderá prontamente.",
     category: "Assistência",
   },
   {

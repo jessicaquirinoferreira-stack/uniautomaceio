@@ -131,7 +131,7 @@ export const ChatAssistantModal: React.FC = () => {
           type: 'whatsapp',
         };
       } else if (lower.includes('guincho') || lower.includes('assist') || lower.includes('24h') || lower.includes('pane')) {
-        botReply = 'Nossa Assistência 24 Horas atende em todo o território nacional! Em caso de colisão, o guincho é ILIMITADO até a oficina de reparo. Também inclui: chaveiro 24h, socorro elétrico/mecânico, troca de pneus, auxílio falta de combustível, transporte alternativo (táxi/app) e hospedagem para até 5 pessoas!';
+        botReply = 'Nossa Assistência 24 Horas atende em todo o território nacional pelo telefone gratuito da Central 24h +55 800 940 0587 (0800 940 0587) ou pelo WhatsApp! Em caso de colisão, o guincho é ILIMITADO até a oficina de reparo. Também inclui: chaveiro 24h, socorro elétrico/mecânico, troca de pneus, falta de combustível e hospedagem!';
         action = {
           label: 'Falar com Atendimento 24h',
           url: `https://wa.me/${UNIAUTO_INFO.whatsappNumber}?text=${encodeURIComponent('Olá! Gostaria de saber mais sobre o atendimento de guincho 24h.')}`,

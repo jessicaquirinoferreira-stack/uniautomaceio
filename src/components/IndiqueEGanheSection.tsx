@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Users,
   Award,
@@ -20,6 +20,10 @@ import {
   Zap,
 } from 'lucide-react';
 import { UNIAUTO_INFO, INDIQUE_E_GANHE_DATA } from '../data/uniautoData';
+import { CardSpotlight } from './ui/CardSpotlight';
+import { BorderBeam } from './ui/BorderBeam';
+import { Meteors } from './ui/Meteors';
+import { triggerConfetti } from './ui/ConfettiTrigger';
 
 export const IndiqueEGanheSection: React.FC = () => {
   // Simulator state
@@ -44,6 +48,13 @@ export const IndiqueEGanheSection: React.FC = () => {
   const multiplicadorSuperPix = Math.floor(totalIndicados / INDIQUE_E_GANHE_DATA.superPixGoal);
   const valorBonusSuperPix = isSuperPixAtivo ? multiplicadorSuperPix * INDIQUE_E_GANHE_DATA.superPixAmount : 0;
   const totalGeralPix = ganhoCarros + ganhoMotos + valorBonusSuperPix;
+
+  // Trigger celebration confetti when unlocked 5 referrals
+  useEffect(() => {
+    if (isSuperPixAtivo) {
+      triggerConfetti();
+    }
+  }, [isSuperPixAtivo]);
 
   // Build WhatsApp text for simulator
   const handleSimulacaoWhatsApp = () => {
@@ -112,10 +123,13 @@ export const IndiqueEGanheSection: React.FC = () => {
           </p>
         </div>
 
-        {/* TOP HIGHLIGHT: As Duas Recompensas Principais (Cards Carro & Moto) */}
+        {/* TOP HIGHLIGHT: As Duas Recompensas Principais (Cards Carro & Moto com CardSpotlight) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {/* Card Carro - R$ 100,00 */}
-          <div className="relative rounded-3xl bg-white border-2 border-blue-200 p-6 sm:p-8 shadow-xl shadow-blue-900/5 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 group">
+          <CardSpotlight
+            spotlightColor="rgba(0, 61, 165, 0.16)"
+            className="relative rounded-3xl bg-white border-2 border-blue-200 p-6 sm:p-8 shadow-xl shadow-blue-900/5 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 group"
+          >
             <div className="flex items-start justify-between gap-4 mb-4">
               <span className="px-3.5 py-1 rounded-full bg-blue-100 text-[#003DA5] font-black text-xs uppercase tracking-wider">
                 Indicação de Carro
@@ -151,10 +165,13 @@ export const IndiqueEGanheSection: React.FC = () => {
                 <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
-          </div>
+          </CardSpotlight>
 
           {/* Card Moto - R$ 50,00 */}
-          <div className="relative rounded-3xl bg-white border-2 border-emerald-200 p-6 sm:p-8 shadow-xl shadow-emerald-900/5 hover:border-emerald-400 hover:shadow-2xl transition-all duration-300 group">
+          <CardSpotlight
+            spotlightColor="rgba(0, 168, 89, 0.16)"
+            className="relative rounded-3xl bg-white border-2 border-emerald-200 p-6 sm:p-8 shadow-xl shadow-emerald-900/5 hover:border-emerald-400 hover:shadow-2xl transition-all duration-300 group"
+          >
             <div className="flex items-start justify-between gap-4 mb-4">
               <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-[#00A859] font-black text-xs uppercase tracking-wider">
                 Indicação de Moto
@@ -190,11 +207,13 @@ export const IndiqueEGanheSection: React.FC = () => {
                 <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
-          </div>
+          </CardSpotlight>
         </div>
 
         {/* MEGA BANNER: SUPER PROMOÇÃO 5 PESSOAS = SUPER PIX R$ 1.000,00 */}
         <div className="mb-14 relative rounded-3xl bg-gradient-to-r from-[#002B7A] via-[#003DA5] to-[#00A859] p-6 sm:p-10 text-white shadow-2xl overflow-hidden border border-blue-400/30">
+          <BorderBeam colorFrom="#F59E0B" colorTo="#10B981" size={320} duration={8} />
+          <Meteors number={12} className="opacity-30 pointer-events-none" />
           {/* Background effects */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-400/20 rounded-full blur-2xl pointer-events-none" />
@@ -567,19 +586,19 @@ export const IndiqueEGanheSection: React.FC = () => {
                 <img
                   src={UNIAUTO_INFO.flyerIndique1Url}
                   alt="Flyer Oficial Uniauto - Indicou Fechou Ganhou - Super Pix de R$ 1.000,00"
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-[center_52%] scale-112 group-hover:scale-118 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <button
                     onClick={() => setSelectedFlyer(UNIAUTO_INFO.flyerIndique1Url)}
-                    className="px-4 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xl hover:bg-blue-50"
+                    className="px-4 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xl hover:bg-blue-50 cursor-pointer"
                   >
                     <Eye className="w-4 h-4 text-[#003DA5]" />
                     <span>Ampliar Flyer 1</span>
                   </button>
                 </div>
                 {/* Badge de Correção Oficial sobre o flyer */}
-                <div className="absolute top-3 left-3 right-3 bg-amber-400 text-slate-950 font-black text-[11px] px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1.5 justify-center">
+                <div className="absolute top-3 left-3 right-3 bg-amber-400 text-slate-950 font-black text-[11px] px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1.5 justify-center z-10">
                   <Sparkles className="w-3.5 h-3.5 text-slate-950" />
                   <span>REGRA OFICIAL ATUALIZADA: 5 PESSOAS = SUPER PIX R$ 1.000!</span>
                 </div>
@@ -598,18 +617,18 @@ export const IndiqueEGanheSection: React.FC = () => {
                 <img
                   src={UNIAUTO_INFO.flyerIndique2Url}
                   alt="Flyer Oficial Uniauto - Indique e Ganhe Carro R$ 100 Moto R$ 50"
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-[center_50%] scale-112 group-hover:scale-118 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <button
                     onClick={() => setSelectedFlyer(UNIAUTO_INFO.flyerIndique2Url)}
-                    className="px-4 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xl hover:bg-blue-50"
+                    className="px-4 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs flex items-center gap-1.5 shadow-xl hover:bg-blue-50 cursor-pointer"
                   >
                     <Eye className="w-4 h-4 text-[#003DA5]" />
                     <span>Ampliar Flyer 2</span>
                   </button>
                 </div>
-                <div className="absolute top-3 left-3 bg-[#00A859] text-white font-black text-[11px] px-3 py-1.5 rounded-lg shadow-md">
+                <div className="absolute top-3 left-3 bg-[#00A859] text-white font-black text-[11px] px-3 py-1.5 rounded-lg shadow-md z-10">
                   TABELA DE PRÊMIOS OFICIAL
                 </div>
               </div>

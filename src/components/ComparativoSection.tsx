@@ -107,6 +107,37 @@ export const ComparativoSection: React.FC = () => {
           </table>
         </div>
 
+        {/* Visual Real Comparison Card: Card 07 (Sem Uniauto vs Com Uniauto) */}
+        <div className="mt-12 rounded-3xl bg-gradient-to-r from-blue-900 to-[#003DA5] p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="flex-1">
+            <span className="px-3 py-1 rounded-full bg-emerald-400 text-slate-950 text-xs font-black uppercase tracking-wider">
+              Caso Real • Roubo & Furto
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black mt-2">
+              Roubaram, e agora? Calma, com a localização em tempo real resolve!
+            </h3>
+            <p className="text-xs sm:text-sm text-blue-100 mt-2 leading-relaxed">
+              Enquanto quem está sem proteção fica à beira da pista no desespero, o associado da Uniauto abre o aplicativo, aciona a central 24h com a localização em tempo real do veículo e conta com a pronta resposta de resgate.
+            </p>
+            <div className="mt-4 flex items-center gap-4 text-xs font-bold">
+              <span className="flex items-center gap-1.5 text-rose-300">
+                <X className="w-4 h-4" /> Sem Uniauto: Prejuízo total
+              </span>
+              <span className="flex items-center gap-1.5 text-emerald-300">
+                <Check className="w-4 h-4" /> Com Uniauto: 100% amparado
+              </span>
+            </div>
+          </div>
+
+          <div className="w-48 sm:w-56 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 shrink-0 bg-slate-900">
+            <img
+              src="/assets/uniauto_cards/card_07.jpg"
+              alt="Comparativo Sem Uniauto vs Com Uniauto"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+
         {/* Bottom CTA */}
         <div className="mt-8 text-center">
           <a
